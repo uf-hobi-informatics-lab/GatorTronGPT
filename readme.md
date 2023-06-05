@@ -7,6 +7,21 @@
 - this is the repo containing all the code for training, evaluating and generate medical text with GPT models based on Megatron-LM
 - this is the repo for GatorTronGPT project
 
+## GatorTronS model from Hugging Face 
+- The GatorTronS model is available from : https://huggingface.co/UFNLP/gatortronS
+- How to use
+```python
+from transformers import AutoModel, AutoTokenizer, AutoConfig
+
+tokinizer= AutoTokenizer.from_pretrained('UFNLP/gatortronS')
+config=AutoConfig.from_pretrained('UFNLP/gatortronS')
+mymodel=AutoModel.from_pretrained('UFNLP/gatortronS')
+
+encoded_input=tokinizer("Bone scan:  Negative for distant metastasis.", return_tensors="pt")
+encoded_output = mymodel(**encoded_input)
+print (encoded_output)
+```
+
 ## Reference
 We have a preprint at
 ```
